@@ -5,6 +5,9 @@ node_modules
 .editorconfig
 .eslintrc
 .gitignore
+.npmignore
 postcss.config.js
 webpack.config.dev.js
 webpack.config.prod.js
+*.log
+*.lock

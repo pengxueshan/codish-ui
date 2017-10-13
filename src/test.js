@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Input} from './index';
+import {Input} from './input';
 
 class App extends Component {
     render() {
