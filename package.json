@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pengxueshan/codish-ui#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"

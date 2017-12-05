@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import _ from 'lodash';
 import {REGEXP} from './constants';
+import classNames from 'classnames';
 
 import './index.css';
 
@@ -11,13 +12,13 @@ export default class Input extends Component {
     }
 
     state = {
-        value: ''
+        value: this.props.defaultValue || ''
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.defaultValue && nextProps.defaultValue !== this.props.defaultValue) {
             let value = this.checkValue(nextProps.defaultValue);
-            if (value !== false) {
+            if (value) {
                 this.setState({
                     value: nextProps.defaultValue
                 });
@@ -68,8 +69,14 @@ export default class Input extends Component {
 
     render() {
         let {value} = this.state;
+        let cls = classNames(
+            'codish-ui codish-ui-input',
+            {
+                'is-inline': this.props.inline
+            }
+        );
         return (
-            <div className="codish-ui codish-ui-input">
+            <div className={cls}>
                 <input
                     type="text"
                     value={value}

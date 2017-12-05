@@ -12,8 +12,12 @@
         line-height: 1.2;
         padding: 5px 10px;
         outline: none;
+        border-radius: 2px;
         &:focus {
             border-color: $primary;
         }
+    }
+    &.is-inline {
+        width: auto;
     }
 }
