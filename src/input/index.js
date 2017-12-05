@@ -8,7 +8,8 @@ import './index.css';
 export default class Input extends Component {
     static defaultProps = {
         type: 'text',
-        placeholder: ''
+        placeholder: '',
+        nativeType: 'type'
     }
 
     state = {
@@ -78,7 +79,7 @@ export default class Input extends Component {
         return (
             <div className={cls}>
                 <input
-                    type="text"
+                    type={this.props.nativeType}
                     value={value}
                     onChange={this.handleChange}
                     placeholder={this.props.placeholder} />
