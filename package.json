@@ -1,11 +1,11 @@
 {
   "name": "codish-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.dev.js --open",
-    "build": "rm -rf dist && webpack --config ./webpack.config.prod.js"
+    "build": "rm -rf dist && webpack --config ./webpack.config.prod.js -w"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

@@ -1,0 +1,35 @@
+.codish-ui-popup {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    &-header {
+        padding: 0 10px;
+        display: flex;
+        height: 20px;
+        background: #000;
+        align-items: center;
+        position: relative;
+        color: #fff;
+    }
+    &-title {
+        flex: 1;
+    }
+    &-close {
+        display: flex;
+        align-items: center;
+        &:after {
+            content: 'ㄨ';
+        }
+    }
+    &-footer {
+        display: flex;
+        padding: 10px;
+        justify-content: flex-end;
+        .codish-ui-button {
+            margin: 0 0 0 10px;
+        }
+    }
+}

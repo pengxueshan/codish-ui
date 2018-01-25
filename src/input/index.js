@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import {REGEXP} from './constants';
 import classNames from 'classnames';
@@ -87,3 +88,9 @@ export default class Input extends Component {
         );
     }
 }
+
+Input.propTypes = {
+    type: PropTypes.string,
+    placeholder: PropTypes.string,
+    nativeType: PropTypes.string,
+};

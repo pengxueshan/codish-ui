@@ -1,0 +1,22 @@
+.codish-ui-button {
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    line-height: 20px;
+    background: #eee;
+    cursor: pointer;
+    padding: 0 15px;
+    &:hover {
+        background: #ddd;
+    }
+    &.is-inline {
+        display: inline-block;
+    }
+    &.is-disabled {
+        cursor: default !important;
+        color: #999 !important;
+        &:hover {
+            background: #eee !important;
+        }
+    }
+}
