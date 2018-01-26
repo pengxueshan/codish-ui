@@ -1,8 +1,10 @@
+@import "../variable";
+
 .codish-ui-select {
     display: inline-block;
     color: #000;
     &-active {
-        border: 1px solid #ddd;
+        border: 1px solid $border;
         border-radius: 2px;
         background: #fff;
         position: relative;
@@ -18,8 +20,8 @@
             height: 6px;
             right: 10px;
             top: 50%;
-            border-top: 1px solid #ddd;
-            border-right: 1px solid #ddd;
+            border-top: 1px solid $border;
+            border-right: 1px solid $border;
             transform: translateY(-50%) rotate(135deg);
         }
     }

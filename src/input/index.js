@@ -100,16 +100,29 @@ export default class Input extends Component {
         return tmp;
     }
 
+    renderLabel() {
+        if (!this.props.label) return null;
+        let style = {};
+        if (this.props.labelWidth) {
+            style.flexBasis = this.props.labelWidth + 'px';
+        }
+        return (
+            <label className="codish-ui-input-title" style={style}>{this.props.label}</label>
+        );
+    }
+
     render() {
         let {value} = this.state;
         let cls = classNames(
             'codish-ui codish-ui-input',
+            this.props.className,
             {
                 'is-inline': this.props.inline
             }
         );
         return (
             <div className={cls}>
+                {this.renderLabel()}
                 <input
                     type={this.props.nativeType}
                     value={value}
@@ -122,7 +135,10 @@ export default class Input extends Component {
 
 Input.propTypes = {
     type: PropTypes.string,
+    className: PropTypes.string,
     placeholder: PropTypes.string,
     nativeType: PropTypes.string,
     digits: PropTypes.number,
+    label: PropTypes.string,
+    labelWidth: PropTypes.number,
 };

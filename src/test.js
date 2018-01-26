@@ -48,6 +48,19 @@ class App extends Component {
                         inline
                         placeholder="inline 模式" />
                 </div>
+                <div className="item">
+                    <Input
+                        inline
+                        placeholder="inline 模式"
+                        label="带标题的" />
+                </div>
+                <div className="item" style={{width: '300px'}}>
+                    <Input
+                        inline
+                        placeholder="inline 模式"
+                        label="自定义标题长度"
+                        labelWidth={100} />
+                </div>
             </div>
         );
     }

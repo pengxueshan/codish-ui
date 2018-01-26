@@ -1,8 +1,9 @@
 @import "../variable";
 
 .codish-ui-input {
-    display: inline-block;
+    display: inline-flex;
     width: 100%;
+    align-items: center;
     &, * {
         box-sizing: border-box;
     }
@@ -13,11 +14,16 @@
         padding: 5px 10px;
         outline: none;
         border-radius: 2px;
+        flex: 1;
         &:focus {
             border-color: $primary;
         }
     }
     &.is-inline {
         width: auto;
+    }
+    .codish-ui-input-title {
+        margin-right: 8px;
+        white-space: nowrap;
     }
 }
