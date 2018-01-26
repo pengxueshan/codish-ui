@@ -12,13 +12,17 @@ const bodyNode = document.getElementsByTagName('body')[0];
 export default class Modal extends Component {
     static defaultProps = {
         modal: true,
-        show: false
+        show: false,
+        noneParent: false
     };
 
     getNode() {
         let cls = classNames('codish-ui-modal', this.props.className, {
             'is-modal': this.props.modal
         });
+        if (this.props.noneParent) {
+            return this.props.children;
+        }
         return (
             <div className={cls}>
                 {this.props.modal ? <div className="codish-ui-modal-mask"></div> : null}
@@ -41,4 +45,5 @@ export default class Modal extends Component {
 Modal.propTypes = {
     modal: PropTypes.bool,
     show: PropTypes.bool,
+    noneParent: PropTypes.bool,
 };
