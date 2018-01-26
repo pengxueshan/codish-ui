@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import classNames from 'classnames';
 
 import './index.css';
 
@@ -15,8 +16,11 @@ export default class Modal extends Component {
     };
 
     getNode() {
+        let cls = classNames('codish-ui-modal', this.props.className, {
+            'is-modal': this.props.modal
+        });
         return (
-            <div className="codish-ui-modal">
+            <div className={cls}>
                 {this.props.modal ? <div className="codish-ui-modal-mask"></div> : null}
                 {this.props.children}
             </div>

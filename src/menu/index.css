@@ -1,0 +1,51 @@
+.codish-ui-menu {
+    position: absolute;
+    z-index: 1000;
+    &-item {
+        background: #fff;
+        min-width: 100px;
+        line-height: 26px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        position: relative;
+        cursor: default;
+        &:first-child {
+            border-radius: 4px 4px 0 0;
+        }
+        &:last-child {
+            border-radius: 0 0 4px 4px;
+        }
+        &:noly-child {
+            border-radius: 4px;
+        }
+        &:hover {
+            background: #eee;
+            >.codish-ui-menu-children {
+                display: block;
+            }
+        }
+        &.has-children {
+            &:after {
+                position: absolute;
+                content: '';
+                width: 6px;
+                height: 6px;
+                right: 10px;
+                top: 50%;
+                border-top: 1px solid #ddd;
+                border-right: 1px solid #ddd;
+                transform: translateY(-50%) rotate(45deg);
+            }
+        }
+    }
+    &-sep {
+        border-bottom: 1px solid #ddd;
+    }
+    &-children {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(100%);
+        display: none;
+    }
+}
