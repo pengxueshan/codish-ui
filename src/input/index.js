@@ -10,7 +10,8 @@ export default class Input extends Component {
     static defaultProps = {
         type: 'text',
         placeholder: '',
-        nativeType: 'type'
+        nativeType: 'type',
+        digits: 3,
     }
 
     state = {
@@ -53,20 +54,55 @@ export default class Input extends Component {
         if (regExp) {
             if (!regExp.test(origin)) {
                 return false;
-            } else {
-                return origin;
             }
+            return origin;
         }
         let {type} = this.props;
         if (type && REGEXP[type] && !REGEXP[type].test(origin)) {
             return false;
         }
         let {digits} = this.props;
-        if (type === 'number' && digits !== undefined) {
-            origin = origin.replace(new RegExp(`(\\.\\d{${digits}})(.*)`), '$1');
+        if (type === 'number') {
+            origin = this.checkFloatValid(origin, digits);
+        } else if (type === 'int') {
+            origin = this.checkIntValid(origin);
         }
 
         return origin;
+    }
+
+    checkIntValid = value => {
+        let isNeg = false;
+        if (value[0] == '-') {
+            isNeg = true;
+        }
+        let tmp = value.replace(/[^\d]/g, '');
+        if (isNeg) {
+            tmp = '-' + tmp;
+        }
+        return tmp;
+    }
+
+    checkFloatValid = (value, digits) => {
+        if (value == '' || value == '-') return value;
+        if (value == '.') return '';
+        if (value == '-.') return '-';
+        let isNeg = false;
+        if (value[0] == '-') {
+            isNeg = true;
+        }
+        let tmp = value.replace(/[^\d\.]/g, '');
+        if (tmp[0] == '.') {
+            tmp = '0' + tmp;
+        }
+        if (tmp.indexOf('.') > -1) {
+            let arr = tmp.split('.');
+            tmp = arr[0] + '.' + arr[1].slice(0, digits);
+        }
+        if (isNeg) {
+            tmp = '-' + tmp;
+        }
+        return tmp;
     }
 
     render() {
@@ -93,4 +129,5 @@ Input.propTypes = {
     type: PropTypes.string,
     placeholder: PropTypes.string,
     nativeType: PropTypes.string,
+    digits: PropTypes.number,
 };
