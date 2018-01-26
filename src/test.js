@@ -61,6 +61,21 @@ class App extends Component {
                         label="自定义标题长度"
                         labelWidth={100} />
                 </div>
+                <div className="item">
+                    <Input
+                        inline
+                        placeholder="inline 模式"
+                        label="输入框后面有内容-内部"
+                        renderExtra={() => <div>test</div>}
+                        inner />
+                </div>
+                <div className="item">
+                    <Input
+                        inline
+                        placeholder="inline 模式"
+                        label="输入框后面有内容"
+                        renderExtra={() => <div>test</div>} />
+                </div>
             </div>
         );
     }

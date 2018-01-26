@@ -111,23 +111,38 @@ export default class Input extends Component {
         );
     }
 
+    renderExtra() {
+        if (typeof this.props.renderExtra === 'function') {
+            return (
+                <div className="codish-ui-input-extra">{this.props.renderExtra()}</div>
+            );
+        }
+    }
+
     render() {
         let {value} = this.state;
         let cls = classNames(
             'codish-ui codish-ui-input',
             this.props.className,
             {
-                'is-inline': this.props.inline
-            }
+                'is-inline': this.props.inline,
+                'is-inner': this.props.inner
+            },
         );
+        let inputStyle = {};
+        if (this.props.inner && this.props.extraWidth) {
+            inputStyle.paddingRight = this.props.extraWidth + 'px';
+        }
         return (
             <div className={cls}>
                 {this.renderLabel()}
                 <input
+                    style={inputStyle}
                     type={this.props.nativeType}
                     value={value}
                     onChange={this.handleChange}
                     placeholder={this.props.placeholder} />
+                {this.renderExtra()}
             </div>
         );
     }
@@ -141,4 +156,7 @@ Input.propTypes = {
     digits: PropTypes.number,
     label: PropTypes.string,
     labelWidth: PropTypes.number,
+    renderExtra: PropTypes.func,
+    extraWidth: PropTypes.number,
+    inner: PropTypes.bool,
 };
