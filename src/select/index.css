@@ -1,0 +1,26 @@
+.codish-ui-select {
+    display: inline-block;
+    color: #000;
+    &-active {
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        background: #fff;
+        position: relative;
+        padding: 0 20px 0 10px;
+        box-sizing: border-box;
+        height: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        &:after {
+            position: absolute;
+            content: '';
+            width: 6px;
+            height: 6px;
+            right: 10px;
+            top: 50%;
+            border-top: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            transform: translateY(-50%) rotate(135deg);
+        }
+    }
+}

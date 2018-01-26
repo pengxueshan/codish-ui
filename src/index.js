@@ -4,6 +4,7 @@ import Modal from './modal';
 import Button from './button';
 import Draggable from './draggable';
 import Menu from './menu';
+import Select from './select';
 
 export default {
     Input,
@@ -11,5 +12,6 @@ export default {
     Modal,
     Button,
     Draggable,
-    Menu
+    Menu,
+    Select
 };

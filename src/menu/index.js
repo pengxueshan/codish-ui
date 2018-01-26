@@ -47,9 +47,10 @@ export default class Popup extends Component {
                     </div>
                 );
             }
+            let text = item.text || item;
             return (
                 <div key={index} className="codish-ui-menu-item" onClick={this.handleItemClick}
-                    data-index={index} data-text={item}>{item}</div>
+                    data-index={index} data-text={text}>{text}</div>
             );
         });
     }
@@ -73,6 +74,13 @@ export default class Popup extends Component {
         let {className} = this.props;
         let cls = classNames('codish-ui-menu', className);
         let style = this.getPos();
+        if (this.props.width) {
+            style.width = this.props.width + 'px';
+        }
+        if (this.props.height) {
+            style.height = this.props.height + 'px';
+            style.overflow = 'hidden';
+        }
         return (
             <Modal show={this.state.show} modal={false}>
                 <div className={cls} style={style}>
@@ -85,6 +93,8 @@ export default class Popup extends Component {
 
 Popup.propTypes = {
     className: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number,
     data: PropTypes.array,
     onItemClick: PropTypes.func,
     position: PropTypes.object,
