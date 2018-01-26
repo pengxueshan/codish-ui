@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {REGEXP} from './constants';
 import classNames from 'classnames';
 
 import './index.css';
@@ -57,11 +56,7 @@ export default class Input extends Component {
             }
             return origin;
         }
-        let {type} = this.props;
-        if (type && REGEXP[type] && !REGEXP[type].test(origin)) {
-            return false;
-        }
-        let {digits} = this.props;
+        let {type, digits} = this.props;
         if (type === 'number') {
             origin = this.checkFloatValid(origin, digits);
         } else if (type === 'int') {

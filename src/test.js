@@ -25,7 +25,7 @@ class App extends Component {
                 <div className="item">
                     <Input
                         type="number"
-                        digits="3"
+                        digits={3}
                         placeholder="这是一个可以输入3位小数的浮点数输入框" />
                 </div>
                 <div className="item">
