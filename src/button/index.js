@@ -5,6 +5,13 @@ import classNames from 'classnames';
 import './index.css';
 
 export default class Button extends Component {
+    static propTypes = {
+        className: PropTypes.string,
+        inline: PropTypes.bool,
+        onClick: PropTypes.func,
+        disabled: PropTypes.bool,
+    };
+
     static defaultProps = {
         className: '',
         inline: true,
@@ -28,10 +35,3 @@ export default class Button extends Component {
         );
     }
 }
-
-Button.propTypes = {
-    className: PropTypes.string,
-    inline: PropTypes.bool,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool,
-};

@@ -4,6 +4,13 @@ import Modal from '../modal';
 import classNames from 'classnames';
 
 export default class Layer extends Component {
+    static propTypes = {
+        className: PropTypes.string,
+        position: PropTypes.object,
+        fixed: PropTypes.bool,
+        show: PropTypes.bool,
+    };
+
     static defaultProps = {
         position: {x: 0, y: 0},
         className: '',
@@ -24,10 +31,3 @@ export default class Layer extends Component {
         );
     }
 }
-
-Layer.propTypes = {
-    className: PropTypes.string,
-    position: PropTypes.object,
-    fixed: PropTypes.bool,
-    show: PropTypes.bool,
-};

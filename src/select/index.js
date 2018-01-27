@@ -7,6 +7,15 @@ import classNames from 'classnames';
 import './index.css';
 
 export default class Select extends Component {
+    static propTypes = {
+        className: PropTypes.string,
+        options: PropTypes.array,
+        onItemClick: PropTypes.func,
+        defaultActiveIndex: PropTypes.number,
+        placeholder: PropTypes.string,
+        width: PropTypes.number,
+    };
+
     static defaultProps = {
         className: '',
         placeholder: '请选择...',
@@ -74,12 +83,3 @@ export default class Select extends Component {
         );
     }
 }
-
-Select.propTypes = {
-    className: PropTypes.string,
-    options: PropTypes.array,
-    onItemClick: PropTypes.func,
-    defaultActiveIndex: PropTypes.number,
-    placeholder: PropTypes.string,
-    width: PropTypes.number,
-};

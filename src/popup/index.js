@@ -8,6 +8,14 @@ import Draggable from '../draggable';
 import './index.css';
 
 export default class Popup extends Component {
+    static propTypes = {
+        title: PropTypes.string,
+        buttons: PropTypes.array,
+        onBtnClick: PropTypes.func,
+        onClose: PropTypes.func,
+        draggable: PropTypes.bool
+    };
+
     static defaultProps = {
         title: '提示',
         onClose: () => {},
@@ -72,11 +80,3 @@ export default class Popup extends Component {
         );
     }
 }
-
-Popup.propTypes = {
-    title: PropTypes.string,
-    buttons: PropTypes.array,
-    onBtnClick: PropTypes.func,
-    onClose: PropTypes.func,
-    draggable: PropTypes.bool
-};

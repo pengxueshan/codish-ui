@@ -6,6 +6,22 @@ import classNames from 'classnames';
 import './index.css';
 
 export default class Input extends Component {
+    static propTypes = {
+        type: PropTypes.string,
+        className: PropTypes.string,
+        placeholder: PropTypes.string,
+        nativeType: PropTypes.string,
+        digits: PropTypes.number,
+        label: PropTypes.string,
+        labelWidth: PropTypes.number,
+        renderExtra: PropTypes.func,
+        onChange: PropTypes.func,
+        onFocus: PropTypes.func,
+        onBlur: PropTypes.func,
+        extraWidth: PropTypes.number,
+        inner: PropTypes.bool,
+    };
+
     static defaultProps = {
         type: 'text',
         placeholder: '',
@@ -119,6 +135,10 @@ export default class Input extends Component {
         }
     }
 
+    getInputRef = () => {
+        return this.input;
+    }
+
     render() {
         let {value} = this.state;
         let cls = classNames(
@@ -141,22 +161,12 @@ export default class Input extends Component {
                     type={this.props.nativeType}
                     value={value}
                     onChange={this.handleChange}
-                    placeholder={this.props.placeholder} />
+                    onFocus={this.props.onFocus}
+                    onBlur={this.props.onBlur}
+                    placeholder={this.props.placeholder}
+                    ref={node => this.input = node} />
                 {this.renderExtra()}
             </div>
         );
     }
 }
-
-Input.propTypes = {
-    type: PropTypes.string,
-    className: PropTypes.string,
-    placeholder: PropTypes.string,
-    nativeType: PropTypes.string,
-    digits: PropTypes.number,
-    label: PropTypes.string,
-    labelWidth: PropTypes.number,
-    renderExtra: PropTypes.func,
-    extraWidth: PropTypes.number,
-    inner: PropTypes.bool,
-};

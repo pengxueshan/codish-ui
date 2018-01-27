@@ -3,6 +3,15 @@ import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 
 export default class Draggable extends Component {
+    static propTypes = {
+        dragId: PropTypes.string,
+        draggable: PropTypes.bool,
+        onMoveStart: PropTypes.func,
+        onMoving: PropTypes.func,
+        onMoveEnd: PropTypes.func,
+        getBoundaryDom: PropTypes.func,
+    };
+
     static defaultProps = {
         draggable: true,
         onMoveStart: () => {},
@@ -118,12 +127,3 @@ export default class Draggable extends Component {
         });
     }
 }
-
-Draggable.propTypes = {
-    dragId: PropTypes.string,
-    draggable: PropTypes.bool,
-    onMoveStart: PropTypes.func,
-    onMoving: PropTypes.func,
-    onMoveEnd: PropTypes.func,
-    getBoundaryDom: PropTypes.func,
-};

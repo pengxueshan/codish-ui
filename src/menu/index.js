@@ -6,6 +6,16 @@ import classNames from 'classnames';
 import './index.css';
 
 export default class Popup extends Component {
+    static propTypes = {
+        className: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        data: PropTypes.array,
+        onItemClick: PropTypes.func,
+        position: PropTypes.object,
+        onClose: PropTypes.func,
+    };
+
     static defaultProps = {
         className: '',
         data: [],
@@ -90,13 +100,3 @@ export default class Popup extends Component {
         );
     }
 }
-
-Popup.propTypes = {
-    className: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    data: PropTypes.array,
-    onItemClick: PropTypes.func,
-    position: PropTypes.object,
-    onClose: PropTypes.func,
-};
