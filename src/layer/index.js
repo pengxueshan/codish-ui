@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Modal from '../modal';
 import classNames from 'classnames';
 
+import './index.css';
+
 export default class Layer extends Component {
     static propTypes = {
         className: PropTypes.string,

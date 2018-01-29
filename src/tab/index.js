@@ -10,6 +10,7 @@ import './index.css';
 export default class Tab extends Component {
     static propTypes = {
         className: PropTypes.string,
+        tabClassName: PropTypes.string,
         showClose: PropTypes.bool,
         showAdd: PropTypes.bool,
         tools: PropTypes.any,
@@ -96,7 +97,7 @@ export default class Tab extends Component {
 
     renderTabBar() {
         return React.Children.map(this.props.children, (child, index) => {
-            let cls = classNames('codish-ui-tab-item', child.props.barClassName, {
+            let cls = classNames('codish-ui-tab-item', child.props.tabClassName, {
                 'is-active': index === this.state.activeIndex
             });
             return (
