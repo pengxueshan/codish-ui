@@ -37,6 +37,11 @@ export default class Layer extends Component {
         }
     }
 
+    handleCurClick = e => {
+        e.nativeEvent.stopImmediatePropagation();
+        e.stopPropagation();
+    }
+
     render() {
         let cls = classNames('codish-ui-layer', this.props.className);
         let style = {
@@ -46,7 +51,7 @@ export default class Layer extends Component {
         };
         return (
             <Modal noneParent show={this.props.show}>
-                <div className={cls} style={style}>{this.props.children}</div>
+                <div className={cls} style={style} onClick={this.handleCurClick}>{this.props.children}</div>
             </Modal>
         );
     }
