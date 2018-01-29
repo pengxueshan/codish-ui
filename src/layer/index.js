@@ -9,13 +9,33 @@ export default class Layer extends Component {
         position: PropTypes.object,
         fixed: PropTypes.bool,
         show: PropTypes.bool,
+        autoHide: PropTypes.bool,
     };
 
     static defaultProps = {
         position: {x: 0, y: 0},
         className: '',
-        show: true
+        show: true,
+        autoHide: true
     };
+
+    componentDidMount() {
+        if (this.props.autoHide) {
+            document.addEventListener('click', this.handleDocClick);
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.props.autoHide) {
+            document.removeEventListener('click', this.handleDocClick);
+        }
+    }
+
+    handleDocClick = () => {
+        if (typeof this.props.onClose === 'function') {
+            this.props.onClose();
+        }
+    }
 
     render() {
         let cls = classNames('codish-ui-layer', this.props.className);

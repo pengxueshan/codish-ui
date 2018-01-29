@@ -7,6 +7,7 @@ import Menu from './menu';
 import Select from './select';
 import Tab from './tab';
 import TabPane from './tab/tab-pane';
+import Layer from './layer';
 
 export default {
     Input,
@@ -17,5 +18,6 @@ export default {
     Menu,
     Select,
     Tab,
-    TabPane
+    TabPane,
+    Layer
 };
