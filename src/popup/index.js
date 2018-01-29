@@ -31,7 +31,7 @@ export default class Popup extends Component {
         show: true
     };
 
-    headerId = uuid.v4();
+    headerId = 'header' + uuid.v4();
 
     renderFooter() {
         if (!this.props.buttons) return null;

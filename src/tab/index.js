@@ -87,6 +87,13 @@ export default class Tab extends Component {
         }
     }
 
+    renderTabText = (label, props) => {
+        if (typeof this.props.renderTab === 'function') {
+            return this.props.renderTab(label, props);
+        }
+        return label || 'Tab';
+    }
+
     renderTabBar() {
         return React.Children.map(this.props.children, (child, index) => {
             let cls = classNames('codish-ui-tab-item', child.props.barClassName, {
@@ -95,7 +102,7 @@ export default class Tab extends Component {
             return (
                 <div className={cls} data-index={index} data-key={child.key || index}
                     onClick={this.handleItemClick}>
-                    {child.props.label || 'Tab'}
+                    {this.renderTabText(child.props.label, child.props)}
                     {
                         this.props.showClose && child.props.closable !== false ?
                             <span className="codish-ui-tab-close"
