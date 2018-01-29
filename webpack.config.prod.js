@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -6,8 +7,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
-        library: "CodishUI",
-        libraryTarget: "umd",
+        library: 'CodishUI',
+        libraryTarget: 'umd',
     },
     module: {
         rules: [{
@@ -15,18 +16,26 @@ module.exports = {
             include: [
                 path.resolve(__dirname, 'src')
             ],
-            exclude: [
-                path.resolve(__dirname, 'node_modules')
-            ],
+            exclude: /node_modules/,
             loader: 'babel-loader',
         }, {
             test: /\.css$/,
+            exclude: /node_modules/,
             loader: ['style-loader', {
                 loader: 'css-loader',
                 options: {
                     importLoaders: 1,
                 }
             }, 'postcss-loader']
+        }, {
+            test: /\.{jpg|jpeg|gif|png|svg}$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            }]
         }]
     },
     resolve: {
@@ -38,6 +47,7 @@ module.exports = {
     },
     target: 'web',
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
