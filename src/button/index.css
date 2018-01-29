@@ -8,6 +8,7 @@
     background: #eee;
     cursor: pointer;
     padding: 0 15px;
+    white-space: nowrap;
     &:hover {
         background: $border;
     }

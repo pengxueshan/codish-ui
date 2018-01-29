@@ -5,6 +5,8 @@ import Button from './button';
 import Draggable from './draggable';
 import Menu from './menu';
 import Select from './select';
+import Tab from './tab';
+import TabPane from './tab/tab-pane';
 
 export default {
     Input,
@@ -13,5 +15,7 @@ export default {
     Button,
     Draggable,
     Menu,
-    Select
+    Select,
+    Tab,
+    TabPane
 };

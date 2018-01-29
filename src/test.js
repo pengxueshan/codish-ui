@@ -1,13 +1,23 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Input from './input';
+import Tab from './tab';
+import TabPane from './tab/tab-pane';
+import Button from './button';
 
 import './test.css';
 
 class App extends Component {
     state = {
-        defaultValue: '带默认值的输入框'
+        defaultValue: '带默认值的输入框',
+        tabArr: ['tab1', 'tab2', 'tab3']
     }
+
+    tabs = {
+        'tab1': <TabPane label="tab1" closable={false} key="tab1">das 1</TabPane>,
+        'tab2': <TabPane label="tab2" key="tab2">das 2</TabPane>,
+        'tab3': <TabPane label="tab3" key="tab3">das 3</TabPane>
+    };
 
     handleChangeButtonClick = () => {
         this.setState({
@@ -15,9 +25,33 @@ class App extends Component {
         });
     }
 
+    handleTabClose = (index, key) => {
+        let tmpset = new Set(this.state.tabArr);
+        tmpset.delete(key);
+        this.setState({
+            tabArr: [...tmpset]
+        });
+    }
+
+    handleAddClick = (activeIndex, total) => {
+        let newkey = `tabnew${total + 1}`;
+        this.tabs[newkey] = (
+            <TabPane label={newkey} key={newkey}>das new</TabPane>
+        )
+        let arr = this.state.tabArr;
+        arr.push(newkey);
+        this.setState({
+            tabArr: arr
+        });
+    }
+
     render() {
+        let tabs = this.state.tabArr.map(item => {
+            return this.tabs[item];
+        });
         return (
             <div className="test-root">
+                <h2>input</h2>
                 <div className="item">
                     <Input
                         placeholder="这是一个输入框" />
@@ -76,6 +110,17 @@ class App extends Component {
                         label="输入框后面有内容"
                         renderExtra={() => <div>test</div>} />
                 </div>
+                <h2>tab</h2>
+                <Tab className="testtab" showClose showAdd
+                    onClose={this.handleTabClose}
+                    onAddClick={this.handleAddClick}
+                    tools={<Button>tab tool button</Button>}>
+                    {tabs}
+                </Tab>
+                <Tab vertical>
+                    <TabPane label="tab1">tab bar item is vertical 1</TabPane>
+                    <TabPane label="tab2">tab bar item is vertical 2</TabPane>
+                </Tab>
             </div>
         );
     }

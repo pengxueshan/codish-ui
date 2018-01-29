@@ -1,0 +1,82 @@
+@import "../variable.css";
+
+.codish-ui-tab {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    &.is-vertical {
+        flex-direction: row;
+        .codish-ui-tab-bar,
+        .codish-ui-tab-items,
+        .codish-ui-tab-tools {
+            flex-direction: column;
+        }
+    }
+    &-bar {
+        display: flex;
+        align-items: center;
+    }
+    &-items-container {
+        overflow: hidden;
+    }
+    &-items {
+        display: flex;
+    }
+    &-tools {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &-item {
+        cursor: pointer;
+        padding: 0 10px;
+        line-height: 22px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &.is-active,
+        &:hover {
+            background: $border;
+            color: #fff;
+        }
+    }
+    &-content {
+        flex: 1;
+    }
+    &-close {
+        margin-left: 10px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        content: '';
+        background-image: url("../close@2x.png");
+        background-size: 8px;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        padding: 3px;
+        box-sizing: border-box;
+        &:hover {
+            background-image: url("../close-hover@2x.png");
+            background-color: #e25c4b;
+        }
+    }
+    &-add {
+        line-height: 16px;
+        width: 16px;
+        text-align: center;
+        background: #ccc;
+        cursor: pointer;
+        margin: 0 8px;
+        flex-shrink: 0;
+    }
+    &-more {
+        line-height: 16px;
+        background: #ccc;
+        padding: 0 10px;
+        margin: 0 8px;
+        cursor: pointer;
+    }
+}

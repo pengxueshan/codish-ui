@@ -17,18 +17,26 @@ module.exports = {
             include: [
                 path.resolve(__dirname, 'src')
             ],
-            exclude: [
-                path.resolve(__dirname, 'node_modules')
-            ],
+            exclude: /node_modules/,
             loader: 'babel-loader',
         }, {
             test: /\.css$/,
+            exclude: /node_modules/,
             loader: ['style-loader', {
                 loader: 'css-loader',
                 options: {
                     importLoaders: 1,
                 }
             }, 'postcss-loader']
+        }, {
+            test: /\.{jpg|jpeg|gif|png|svg}$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            }]
         }]
     },
     resolve: {
