@@ -4,6 +4,7 @@ import Input from './input';
 import Tab from './tab';
 import TabPane from './tab/tab-pane';
 import Button from './button';
+import Scrollable from './scrollable';
 
 import './test.css';
 
@@ -110,6 +111,29 @@ class App extends Component {
                         label="输入框后面有内容"
                         renderExtra={() => <div>test</div>} />
                 </div>
+                <h2>scroll</h2>
+                <Scrollable style={{height: '50px', border: '1px solid #000'}}>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                    <p>dadadasdad</p>
+                </Scrollable>
                 <h2>tab</h2>
                 <Tab className="testtab" showClose showAdd
                     onClose={this.handleTabClose}

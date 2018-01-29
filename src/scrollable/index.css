@@ -1,0 +1,6 @@
+@import './perfect-scrollbar.css';
+
+.codish-ui-scrollable {
+    position: relative;
+    overflow: hidden;
+}

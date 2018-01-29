@@ -8,6 +8,7 @@ import Select from './select';
 import Tab from './tab';
 import TabPane from './tab/tab-pane';
 import Layer from './layer';
+import Scrollable from './scrollable';
 
 export default {
     Input,
@@ -19,5 +20,6 @@ export default {
     Select,
     Tab,
     TabPane,
-    Layer
+    Layer,
+    Scrollable
 };
