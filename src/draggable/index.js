@@ -120,10 +120,14 @@ export default class Draggable extends Component {
     }
 
     render() {
+        let style = {
+            transform: `translate(${this.state.x}px, ${this.state.y}px)`
+        };
+        if (this.props.children.props.style) {
+            style = Object.assign({}, this.props.children.props.style, style);
+        }
         return React.cloneElement(this.props.children, {
-            style: {
-                transform: `translate(${this.state.x}px, ${this.state.y}px)`
-            }
+            style
         });
     }
 }

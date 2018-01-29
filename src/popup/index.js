@@ -4,6 +4,7 @@ import Modal from '../modal';
 import Button from '../button';
 import uuid from 'uuid';
 import Draggable from '../draggable';
+import classNames from 'classnames';
 
 import './index.css';
 
@@ -13,7 +14,11 @@ export default class Popup extends Component {
         buttons: PropTypes.array,
         onBtnClick: PropTypes.func,
         onClose: PropTypes.func,
-        draggable: PropTypes.bool
+        draggable: PropTypes.bool,
+        className: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        style: PropTypes.object,
     };
 
     static defaultProps = {
@@ -64,10 +69,18 @@ export default class Popup extends Component {
     }
 
     render() {
+        let cls = classNames('codish-ui-popup', this.props.className);
+        let style = this.props.style || {};
+        if (this.props.width) {
+            style.width = this.props.width + 'px';
+        }
+        if (this.props.height) {
+            style.height = this.props.height + 'px';
+        }
         return (
             <Modal show={this.state.show}>
                 <Draggable dragId={this.headerId} draggable={this.props.draggable} getBoundaryDom={this.getBodyDom}>
-                    <div className="codish-ui-popup">
+                    <div className={cls} style={style}>
                         <div className="codish-ui-popup-header" id={this.headerId}>
                             <div className="codish-ui-popup-title">{this.props.title}</div>
                             <div className="codish-ui-popup-close" onClick={this.close}></div>
