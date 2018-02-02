@@ -9,6 +9,7 @@ import Tab from './tab';
 import TabPane from './tab/tab-pane';
 import Layer from './layer';
 import Scrollable from './scrollable';
+import Table from './table';
 
 export default {
     Input,
@@ -21,5 +22,6 @@ export default {
     Tab,
     TabPane,
     Layer,
-    Scrollable
+    Scrollable,
+    Table
 };
