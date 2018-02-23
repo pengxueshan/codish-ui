@@ -112,6 +112,11 @@ class App extends Component {
                         label="输入框后面有内容"
                         renderExtra={() => <div>test</div>} />
                 </div>
+                <div className="item">
+                    <Input
+                        nativeType="password"
+                        placeholder="password" />
+                </div>
                 <h2>scroll</h2>
                 <Scrollable style={{height: '50px', border: '1px solid #000'}}>
                     <p>dadadasdad</p>

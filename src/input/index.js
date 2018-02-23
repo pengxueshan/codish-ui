@@ -8,6 +8,8 @@ import './index.css';
 export default class Input extends Component {
     static propTypes = {
         type: PropTypes.string,
+        regExp: PropTypes.object,
+        inline: PropTypes.bool,
         className: PropTypes.string,
         placeholder: PropTypes.string,
         nativeType: PropTypes.string,
@@ -20,6 +22,7 @@ export default class Input extends Component {
         onBlur: PropTypes.func,
         extraWidth: PropTypes.number,
         inner: PropTypes.bool,
+        defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     };
 
     static defaultProps = {
