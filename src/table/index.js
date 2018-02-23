@@ -158,14 +158,17 @@ export default class Table extends Component {
             );
         }
         return (
-            <div className="codish-ui-table-body-wrap">
+            <div className="codish-ui-table-body-wrap" id={this.bodyId}>
                 {this.renderBodyContent()}
             </div>
         );
     }
 
     renderBodyContent() {
-        let data = this.state.curDataList || this.props.body;
+        let data = this.props.body;
+        if (this.state.curDataList.length) {
+            data = this.state.curDataList;
+        }
         let deltaIndex = this.state.deltaIndex;
         let trs = data.map((bodyItem, bodyIndex) => {
             let realIndex = deltaIndex + bodyIndex;

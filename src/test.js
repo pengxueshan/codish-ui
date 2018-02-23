@@ -146,12 +146,101 @@ class App extends Component {
                     <TabPane label="tab1">tab bar item is vertical 1</TabPane>
                     <TabPane label="tab2">tab bar item is vertical 2</TabPane>
                 </Tab>
+                <p>head fix table</p>
                 <Table
                     style={{height: '100px'}}
                     headFixed
                     bodyWidth={1800}
                     trHoverClassName="hover-class"
-                    head={[<div onClick={() => {console.log('test')}}>dada</div>, 'key1', 'key2', 'key3']}
+                    head={[<div onClick={() => {console.log('test')}}>dada</div>, {key: 'key1', label: 'key1 label'}, 'key2', 'key3']}
+                    body={[
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: <div><input type="text"/></div>
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        },
+                        {
+                            key1: 'key1-content',
+                            key2: 'key2-content',
+                            key3: {
+                                className: 'testclass',
+                                content: 'key3-content'
+                            },
+                        }
+                    ]} />
+                <p>normal table</p>
+                <Table
+                    style={{height: '100px'}}
+                    bodyWidth={1800}
+                    trHoverClassName="hover-class"
+                    head={[<div onClick={() => {console.log('test')}}>dada</div>, {key: 'key1', label: 'key1 label'}, 'key2', 'key3']}
                     body={[
                         {
                             key1: 'key1-content',
