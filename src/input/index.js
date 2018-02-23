@@ -25,7 +25,7 @@ export default class Input extends Component {
     static defaultProps = {
         type: 'text',
         placeholder: '',
-        nativeType: 'type',
+        nativeType: 'text',
         digits: 3,
     }
 
