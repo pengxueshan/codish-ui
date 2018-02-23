@@ -152,6 +152,7 @@ class App extends Component {
                     headFixed
                     bodyWidth={1800}
                     trHoverClassName="hover-class"
+                    resizable
                     head={[<div onClick={() => {console.log('test')}}>dada</div>, {key: 'key1', label: 'key1 label'}, 'key2', 'key3']}
                     body={[
                         {
@@ -237,9 +238,8 @@ class App extends Component {
                     ]} />
                 <p>normal table</p>
                 <Table
-                    style={{height: '100px'}}
-                    bodyWidth={1800}
                     trHoverClassName="hover-class"
+                    resizable
                     head={[<div onClick={() => {console.log('test')}}>dada</div>, {key: 'key1', label: 'key1 label'}, 'key2', 'key3']}
                     body={[
                         {
@@ -247,7 +247,7 @@ class App extends Component {
                             key2: 'key2-content',
                             key3: {
                                 className: 'testclass',
-                                content: <div><input type="text"/></div>
+                                content: 'dadas'
                             },
                         },
                         {

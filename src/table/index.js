@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import uuid from 'uuid';
 import Scrollable from '../scrollable';
+import debounce from 'lodash/debounce';
 
 import './index.css';
 
@@ -43,6 +44,8 @@ export default class Table extends Component {
     componentDidMount() {
         this.calcHeadWidth();
         this.calcItemHeight();
+
+        window.addEventListener('resize', this.delayResize);
     }
 
     componentWillUnmount() {
@@ -50,7 +53,15 @@ export default class Table extends Component {
             this.ps.element.removeEventListener('ps-scroll-x', this.handleScrollX);
             this.ps.element.removeEventListener('ps-scroll-y', this.handleScrollY);
         }
+
+        window.removeEventListener('resize', this.delayResize);
     }
+
+    delayResize = debounce(() => {
+        if (!this.props.headFixed) {
+            this.calcHeadWidth();
+        }
+    }, 500)
 
     calcItemHeight = () => {
         let td = document.querySelector(`#${this.bodyId} td`);
@@ -97,6 +108,7 @@ export default class Table extends Component {
         heads.forEach(item => {
             widths.push(item.getBoundingClientRect().width);
         });
+        widths.pop();
         this.setState({
             headWidth: widths
         });
@@ -110,8 +122,19 @@ export default class Table extends Component {
                 key = item.key || index;
                 text = item.label || key;
             }
+            let cls = classNames(item.className, {
+                'resizable': this.props.resizable && item.resizable !== false
+            });
+            let style = {};
+            let width = this.state.headWidth[index];
+            if (width) {
+                style.width = width + 'px';
+            }
             return (
-                <th key={key} data-key={key}>{text}</th>
+                <th key={key} data-key={key} className={cls} style={style}>
+                    {text}
+                    <span className="resize-handle" data-index={index} onMouseDown={this.handleResizeStart}></span>
+                </th>
             );
         });
         let tableStyle = {};
@@ -130,6 +153,34 @@ export default class Table extends Component {
                 </thead>
             </table>
         );
+    }
+
+    handleResizeStart = e => {
+        let index = e.target.dataset['index'];
+        if (index === undefined) return;
+        this.resizeStartX = e.nativeEvent.pageX;
+        this.resizeIndex = index;
+        this.oldWidth = this.state.headWidth[index];
+        window.addEventListener('mousemove', this.handleMouseMove);
+        window.addEventListener('mouseup', this.handleMouseUp);
+    }
+
+    handleMouseMove = e => {
+        let moveX = e.pageX;
+        let startX = this.resizeStartX || 0;
+        let headWidth = this.state.headWidth;
+        headWidth[this.resizeIndex] = this.oldWidth + (moveX - startX);
+        this.setState({
+            headWidth: headWidth
+        });
+    }
+
+    handleMouseUp = () => {
+        this.resizeIndex = null;
+        this.resizeStartX = 0;
+        this.oldWidth = 0;
+        window.removeEventListener('mousemove', this.handleMouseMove);
+        window.removeEventListener('mouseup', this.handleMouseUp);
     }
 
     updateScrollBar = ps => {

@@ -18,6 +18,29 @@
         border: 1px solid $border;
         box-sizing: border-box;
         padding: 5px 8px;
+        overflow: hidden;
+    }
+    th {
+        position: relative;
+        &:last-child {
+            .resize-handle {
+                display: none;
+            }
+        }
+    }
+    .resize-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 4px;
+        display: none;
+        cursor: col-resize;
+    }
+    .resizable {
+        .resize-handle {
+            display: block;
+        }
     }
     .codish-ui-table-head-wrap {
         flex-shrink: 0;
