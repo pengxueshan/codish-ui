@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 
 export default class Draggable extends Component {
     static propTypes = {
@@ -13,6 +14,7 @@ export default class Draggable extends Component {
     };
 
     static defaultProps = {
+        dragId: `drag-${uuid.v4()}`,
         draggable: true,
         onMoveStart: () => {},
         onMoving: () => {},
