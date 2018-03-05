@@ -1,6 +1,5 @@
-src
-template
-node_modules
+src/
+template/
 .babelrc
 .editorconfig
 .eslintrc

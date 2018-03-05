@@ -1,4 +1,4 @@
-# input
+# Input
 
 ## props
 
@@ -87,6 +87,45 @@ class TestInput extends Component {
                     nativeType="password"
                     placeholder="password" />
             </div>
+        );
+    }
+}
+```
+
+# Button
+
+## props
+
+### className: string
+
+### inline: bool
+
+### onClick: func
+
+### disabled: bool
+
+## usage
+```js
+import React, {Component} from 'react';
+import {Button} from 'codish-ui';
+
+class TestButton extends Component {
+    state = {
+        disabled: false
+    }
+
+    handleClick = () => {
+        console.log('button clicked');
+        this.setState({
+            disabled: !this.state.disabled
+        });
+    }
+
+    render() {
+        return (
+            <Button className="test-button"
+                disabled={this.state.disabled}
+                onClick={this.handleClick}>button</Button>
         );
     }
 }
