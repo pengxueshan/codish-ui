@@ -5,6 +5,8 @@ import classNames from 'classnames';
 export default class TabPane extends Component {
     static propTypes = {
         className: PropTypes.string,
+        label: PropTypes.string,
+        closable: PropTypes.bool,
     };
 
     static defaultProps = {

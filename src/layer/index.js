@@ -12,6 +12,7 @@ export default class Layer extends Component {
         fixed: PropTypes.bool,
         show: PropTypes.bool,
         autoHide: PropTypes.bool,
+        onClose: PropTypes.func,
     };
 
     static defaultProps = {

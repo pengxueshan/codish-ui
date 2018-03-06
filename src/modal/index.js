@@ -14,6 +14,7 @@ export default class Modal extends Component {
         modal: PropTypes.bool,
         show: PropTypes.bool,
         noneParent: PropTypes.bool,
+        className: PropTypes.string,
     };
 
     static defaultProps = {

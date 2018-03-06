@@ -14,6 +14,7 @@ export default class Table extends Component {
         head: PropTypes.array,
         body: PropTypes.array,
         headFixed: PropTypes.bool,
+        resizable: PropTypes.bool,
         bodyWidth: PropTypes.number,
         itemHeight: PropTypes.number,
         overScan: PropTypes.number,

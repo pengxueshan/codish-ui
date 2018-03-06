@@ -14,12 +14,13 @@ export default class Draggable extends Component {
     };
 
     static defaultProps = {
-        dragId: `drag-${uuid.v4()}`,
         draggable: true,
         onMoveStart: () => {},
         onMoving: () => {},
         onMoveEnd: () => {},
     };
+
+    dragId = `codish-ui-drag-${uuid.v4()}`;
 
     state = {
         x: 0,
@@ -50,9 +51,8 @@ export default class Draggable extends Component {
     }
 
     initDrag = () => {
-        if (this.props.dragId) {
-            this.bar = document.getElementById(this.props.dragId);
-        }
+        let id = this.props.dragId || this.dragId;
+        this.bar = document.getElementById(id);
         if (this.bar) {
             this.bar.addEventListener('mousedown', this.handleMouseDown);
         }
@@ -128,8 +128,13 @@ export default class Draggable extends Component {
         if (this.props.children.props.style) {
             style = Object.assign({}, this.props.children.props.style, style);
         }
+        let props = {};
+        if (!this.props.children.props.id) {
+            props.id = this.dragId;
+        }
         return React.cloneElement(this.props.children, {
-            style
+            style,
+            ...props
         });
     }
 }
