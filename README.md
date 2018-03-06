@@ -1,3 +1,5 @@
+A React-based UI library
+
 # Input
 
 ## props
