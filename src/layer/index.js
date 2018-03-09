@@ -13,6 +13,7 @@ export default class Layer extends Component {
         show: PropTypes.bool,
         autoHide: PropTypes.bool,
         onClose: PropTypes.func,
+        delayClose: PropTypes.number
     };
 
     static defaultProps = {
@@ -36,7 +37,11 @@ export default class Layer extends Component {
 
     handleDocClick = () => {
         if (typeof this.props.onClose === 'function') {
-            this.props.onClose();
+            if (this.props.delayClose) {
+                setTimeout(this.props.onClose, this.props.delayClose);
+            } else {
+                this.props.onClose();
+            }
         }
     }
 

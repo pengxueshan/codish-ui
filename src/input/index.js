@@ -142,6 +142,11 @@ export default class Input extends Component {
         return this.input;
     }
 
+    handleClick = e => {
+        e.nativeEvent.stopImmediatePropagation();
+        e.stopPropagation();
+    }
+
     render() {
         let {value} = this.state;
         let cls = classNames(
@@ -167,7 +172,8 @@ export default class Input extends Component {
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
                     placeholder={this.props.placeholder}
-                    ref={node => this.input = node} />
+                    ref={node => this.input = node}
+                    onClick={this.handleClick} />
                 {this.renderExtra()}
             </div>
         );

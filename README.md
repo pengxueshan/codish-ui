@@ -246,6 +246,8 @@ click document to hide layer
 ### onClose: func
 document click handler
 
+### delayClose: number
+
 ## usage
 ```js
 import React, {Component} from 'react';

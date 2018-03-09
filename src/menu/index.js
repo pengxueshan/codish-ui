@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import './index.css';
 
-export default class Popup extends Component {
+export default class Menu extends Component {
     static propTypes = {
         className: PropTypes.string,
         width: PropTypes.number,
@@ -37,9 +37,9 @@ export default class Popup extends Component {
     }
 
     handleItemClick = e => {
-        let target = e.target;
-        this.close();
+        let target = e.currentTarget;
         this.props.onItemClick(target.dataset['text'], target.dataset['index'], e);
+        this.close();
     }
 
     renderItem(data) {
@@ -60,7 +60,9 @@ export default class Popup extends Component {
             let text = item.text || item;
             return (
                 <div key={index} className="codish-ui-menu-item" onClick={this.handleItemClick}
-                    data-index={index} data-text={text}>{text}</div>
+                    data-index={index} data-text={text}>{text}
+                    {item.tail ? <span className="codish-ui-menu-item-tail">{item.tail}</span> : null}
+                </div>
             );
         });
     }
