@@ -6,6 +6,7 @@ import TabPane from './tab/tab-pane';
 import Button from './button';
 import Scrollable from './scrollable';
 import Table from './table';
+import Menu from './menu';
 
 import './test.css';
 
@@ -328,6 +329,26 @@ class App extends Component {
                             },
                         }
                     ]} />
+                <h2>menu</h2>
+                <div style={{height: '100px', border: '1px solid #ddd'}} onContextMenu={e => {
+                    e.preventDefault();
+                    this.setState({
+                        showMenu: true,
+                        menuPosition: {
+                            x: e.clientX,
+                            y: e.clientY
+                        }
+                    });
+                }}>
+                    {this.state.showMenu ? <Menu data={['menu item1', {text: 'menu item2', children: ['children', 'children']}]} position={this.state.menuPosition}
+                        onClose={() => {
+                            this.setState({
+                                showMenu: false
+                            });
+                        }} onItemClick={(text, index) => {
+                            console.log(text, index);
+                        }} /> : null}
+                </div>
             </div>
         );
     }

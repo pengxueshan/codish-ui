@@ -3,8 +3,9 @@
 .codish-ui-menu {
     position: absolute;
     z-index: 1000;
+    background: #ddd;
+    border-radius: 4px;
     &-item {
-        background: #fff;
         min-width: 100px;
         padding: 0 10px;
         box-sizing: border-box;
@@ -22,7 +23,7 @@
         &:only-child {
             border-radius: 4px;
         }
-        &:hover, .item-hover {
+        &:hover, &.item-hover {
             background: #eee;
             >.codish-ui-menu-children {
                 display: block;
@@ -47,6 +48,7 @@
     }
     &-children {
         position: absolute;
+        background: #ddd;
         top: 0;
         left: 0;
         transform: translateX(100%);
