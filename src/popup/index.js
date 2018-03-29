@@ -5,6 +5,8 @@ import Button from '../button';
 import uuid from 'uuid';
 import Draggable from '../draggable';
 import classNames from 'classnames';
+import key from 'keymaster';
+import _ from 'lodash';
 
 import './index.css';
 
@@ -33,8 +35,25 @@ export default class Popup extends Component {
 
     headerId = 'header' + uuid.v4();
 
+    scope = `popup-${this.headerId}`;
+
+    componentDidMount() {
+        key('esc', this.scope, () => {
+            this.close();
+        });
+        key('enter', this.scope, () => {
+            this.handleBtnClick();
+        });
+        key.setScope(this.scope);
+    }
+
+    componentWillUnmount() {
+        key.deleteScope(this.scope);
+    }
+
     renderFooter() {
-        if (!this.props.buttons) return null;
+        if (!this.props.buttons || this.props.buttons.length < 1) return null;
+        if (!_.isArray(this.props.buttons)) return null;
         return (
             <div className="codish-ui-popup-footer">
                 {this.props.buttons.map((item, index) => {
@@ -49,8 +68,11 @@ export default class Popup extends Component {
     }
 
     handleBtnClick = e => {
-        if (typeof this.props.onBtnClick === 'function') {
-            let index = e.target.dataset['index'];
+        if (typeof this.props.onBtnClick === 'function'
+            && this.props.buttons
+            && _.isArray(this.props.buttons)
+            && this.props.buttons.length > 0) {
+            let index = (e && e.target.dataset['index']) || 0;
             let ret = this.props.onBtnClick(index, e);
             if (ret) {
                 this.close();

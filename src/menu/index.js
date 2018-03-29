@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../modal';
 import classNames from 'classnames';
+import key from 'keymaster';
+import uuid from 'uuid';
 
 import './index.css';
 
@@ -25,15 +27,23 @@ export default class Menu extends Component {
     };
 
     state = {
-        show: true
+        show: true,
+        cur: []
     };
+
+    scope = `menu-${uuid.v4()}`;
 
     componentDidMount() {
         document.addEventListener('click', this.close);
+        key('esc', this.scope, () => {
+            this.close();
+        });
+        key.setScope(this.scope);
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.close);
+        key.deleteScope(this.scope);
     }
 
     handleItemClick = e => {

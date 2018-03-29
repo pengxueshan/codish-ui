@@ -22,7 +22,7 @@
         &:only-child {
             border-radius: 4px;
         }
-        &:hover {
+        &:hover, .item-hover {
             background: #eee;
             >.codish-ui-menu-children {
                 display: block;
