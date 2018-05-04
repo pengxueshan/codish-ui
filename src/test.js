@@ -7,13 +7,15 @@ import Button from './button';
 import Scrollable from './scrollable';
 import Table from './table';
 import Menu from './menu';
+import Popup from './popup';
 
 import './test.css';
 
 class App extends Component {
     state = {
         defaultValue: '带默认值的输入框',
-        tabArr: ['tab1', 'tab2', 'tab3']
+        tabArr: ['tab1', 'tab2', 'tab3'],
+        showPopup: true
     }
 
     tabs = {
@@ -21,6 +23,12 @@ class App extends Component {
         'tab2': <TabPane label="tab2" key="tab2">das 2</TabPane>,
         'tab3': <TabPane label="tab3" key="tab3">das 3</TabPane>
     };
+
+    closePopup = () => {
+        this.setState({
+            showPopup: false
+        });
+    }
 
     handleChangeButtonClick = () => {
         this.setState({
@@ -349,6 +357,9 @@ class App extends Component {
                             console.log(text, index);
                         }} /> : null}
                 </div>
+                {
+                    this.state.showPopup ? <Popup onClose={this.closePopup}><div>test</div></Popup> : null
+                }
             </div>
         );
     }

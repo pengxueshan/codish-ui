@@ -27,7 +27,6 @@ export default class Menu extends Component {
     };
 
     state = {
-        show: true,
         cur: ''
     };
 
@@ -36,7 +35,6 @@ export default class Menu extends Component {
     scope = `menu-${uuid.v4()}`;
 
     componentDidMount() {
-        document.addEventListener('click', this.close);
         key('esc', this.scope, () => {
             this.close();
         });
@@ -111,7 +109,6 @@ export default class Menu extends Component {
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.close);
         key.deleteScope(this.scope);
     }
 
@@ -180,9 +177,6 @@ export default class Menu extends Component {
     }
 
     close = () => {
-        this.setState({
-            show: false
-        });
         this.props.onClose();
     }
 
@@ -198,7 +192,7 @@ export default class Menu extends Component {
             style.overflow = 'hidden';
         }
         return (
-            <Modal show={this.state.show} modal={false}>
+            <Modal modal={false}>
                 <div className={cls} style={style}>
                     {this.renderItem(this.props.data)}
                 </div>

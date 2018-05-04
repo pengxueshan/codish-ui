@@ -29,10 +29,6 @@ export default class Popup extends Component {
         draggable: true
     };
 
-    state = {
-        show: true
-    };
-
     headerId = 'header' + uuid.v4();
 
     scope = `popup-${this.headerId}`;
@@ -81,9 +77,7 @@ export default class Popup extends Component {
     }
 
     close = () => {
-        this.setState({
-            show: false
-        }, this.props.onClose);
+        this.props.onClose();
     }
 
     getBodyDom() {
@@ -100,7 +94,7 @@ export default class Popup extends Component {
             style.height = this.props.height + 'px';
         }
         return (
-            <Modal show={this.state.show}>
+            <Modal>
                 <Draggable dragId={this.headerId} draggable={this.props.draggable} getBoundaryDom={this.getBodyDom}>
                     <div className={cls} style={style}>
                         <div className="codish-ui-popup-header" id={this.headerId}>

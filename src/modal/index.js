@@ -12,14 +12,12 @@ const bodyNode = document.getElementsByTagName('body')[0];
 export default class Modal extends Component {
     static propTypes = {
         modal: PropTypes.bool,
-        show: PropTypes.bool,
         noneParent: PropTypes.bool,
         className: PropTypes.string,
     };
 
     static defaultProps = {
         modal: true,
-        show: false,
         noneParent: false
     };
 
@@ -39,9 +37,6 @@ export default class Modal extends Component {
     }
 
     render() {
-        if (!this.props.show) {
-            return null;
-        }
         return ReactDOM.createPortal(
             this.getNode(),
             bodyNode,

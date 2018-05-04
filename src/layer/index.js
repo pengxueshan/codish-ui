@@ -10,7 +10,6 @@ export default class Layer extends Component {
         className: PropTypes.string,
         position: PropTypes.object,
         fixed: PropTypes.bool,
-        show: PropTypes.bool,
         autoHide: PropTypes.bool,
         onClose: PropTypes.func,
         delayClose: PropTypes.number
@@ -19,7 +18,6 @@ export default class Layer extends Component {
     static defaultProps = {
         position: {x: 0, y: 0},
         className: '',
-        show: true,
         autoHide: true
     };
 
@@ -58,7 +56,7 @@ export default class Layer extends Component {
             position: this.props.fixed ? 'fixed' : 'absolute',
         };
         return (
-            <Modal noneParent show={this.props.show}>
+            <Modal noneParent>
                 <div className={cls} style={style} onClick={this.handleCurClick}>{this.props.children}</div>
             </Modal>
         );

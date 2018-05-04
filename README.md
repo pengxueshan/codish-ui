@@ -184,8 +184,6 @@ class TestDraggable extends Component {
 
 ### modal: bool
 
-### show: bool
-
 ### noneParent: bool
 
 ## usage
@@ -215,8 +213,7 @@ class TestModal extends Component {
             <div>
                 <p onClick={this.handleShowClick}>click and show modal</p>
                 {
-                    this.state.show ? <Modal
-                        show={this.state.show}>
+                    this.state.show ? <Modal>
                         <div onClick={this.handleHideClick}>test modal</div>
                     </Modal> : null
                 }
@@ -237,8 +234,6 @@ class TestModal extends Component {
 
 ### fixed: bool
 the css property position fixed
-
-### show: bool
 
 ### autoHide: bool
 click document to hide layer
