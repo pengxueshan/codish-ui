@@ -150,6 +150,11 @@ class App extends Component {
                     <p>dadadasdad</p>
                 </Scrollable>
                 <h2>tab</h2>
+                <Tab>
+                    <TabPane label="tab1" key="tab1">tab1</TabPane>
+                    <TabPane label="tab2" key="tab2">tab2</TabPane>
+                    <TabPane label="tab3" key="tab3">tab3</TabPane>
+                </Tab>
                 <Tab className="testtab" showClose showAdd
                     onClose={this.handleTabClose}
                     onAddClick={this.handleAddClick}
