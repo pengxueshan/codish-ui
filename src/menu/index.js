@@ -192,7 +192,7 @@ export default class Menu extends Component {
             style.overflow = 'hidden';
         }
         return (
-            <Modal modal={false}>
+            <Modal modal={false} noneParent>
                 <div className={cls} style={style}>
                     {this.renderItem(this.props.data)}
                 </div>

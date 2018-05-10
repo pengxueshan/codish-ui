@@ -10,6 +10,7 @@ import Menu from './menu';
 import Popup from './popup';
 import Calendar from './calendar';
 import DatePicker from './date-picker';
+import Select from './select';
 
 import './test.css';
 
@@ -350,8 +351,8 @@ class App extends Component {
                     this.setState({
                         showMenu: true,
                         menuPosition: {
-                            x: e.clientX,
-                            y: e.clientY
+                            x: e.pageX,
+                            y: e.pageY
                         }
                     });
                 }}>
@@ -371,6 +372,8 @@ class App extends Component {
                 <Calendar />
                 <h2>date picker</h2>
                 <DatePicker />
+                <h2>select</h2>
+                <Select options={[1, 2, 3, 4]} />
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>

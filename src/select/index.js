@@ -36,8 +36,8 @@ export default class Select extends Component {
     getOptionPosition = () => {
         let curDom = findDOMNode(this).getBoundingClientRect();
         return {
-            x: curDom.x,
-            y: curDom.y + curDom.height,
+            x: window.scrollX + curDom.x,
+            y: window.scrollY + curDom.y + curDom.height,
         };
     }
 
