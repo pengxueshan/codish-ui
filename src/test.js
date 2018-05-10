@@ -8,6 +8,7 @@ import Scrollable from './scrollable';
 import Table from './table';
 import Menu from './menu';
 import Popup from './popup';
+import Calendar from './calendar';
 
 import './test.css';
 
@@ -365,6 +366,8 @@ class App extends Component {
                 {
                     this.state.showPopup ? <Popup onClose={this.closePopup}><div>test</div></Popup> : null
                 }
+                <h2>calendar</h2>
+                <Calendar />
             </div>
         );
     }

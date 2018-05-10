@@ -1,0 +1,103 @@
+.codish-ui-calendar {
+    display: inline-block;
+    position: relative;
+    .cell {
+        display: inline-block;
+        text-align: center;
+        line-height: 24px;
+        width: 30px;
+    }
+    &__header {
+        text-align: center;
+        position: relative;
+    }
+    &__days {
+        .cell {
+            color: #ccc;
+        }
+        .cur {
+            color: #000;
+        }
+        .cur-day {
+            background: #336699;
+            color: #fff;
+        }
+    }
+    .prev-year,
+    .prev-month,
+    .next-year,
+    .next-month {
+        position: absolute;
+        top: 0;
+    }
+    .prev-year {
+        left: 0;
+    }
+    .prev-month {
+        left: 30px;
+    }
+    .next-year {
+        right: 0;
+    }
+    .next-month {
+        right: 30px;
+    }
+    .month-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        span {
+            margin: 0 10px;
+            flex-basis: 20%;
+            line-height: 24px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+    .year-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        &__years {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex: 1;
+            margin: 20px 0;
+            span {
+                margin: 0 10px;
+                flex-basis: 20%;
+                line-height: 24px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+        &__header {
+            text-align: center;
+            position: relative;
+        }
+        &__prev {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &__next {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

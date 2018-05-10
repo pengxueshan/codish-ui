@@ -10,6 +10,7 @@ import TabPane from './tab/tab-pane';
 import Layer from './layer';
 import Scrollable from './scrollable';
 import Table from './table';
+import Calendar from './calendar';
 
 export default {
     Input,
@@ -23,5 +24,6 @@ export default {
     TabPane,
     Layer,
     Scrollable,
-    Table
+    Table,
+    Calendar
 };
