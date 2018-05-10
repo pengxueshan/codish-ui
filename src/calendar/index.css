@@ -1,6 +1,7 @@
 .codish-ui-calendar {
     display: inline-block;
     position: relative;
+    background: #fff;
     .cell {
         display: inline-block;
         text-align: center;

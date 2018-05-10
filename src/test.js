@@ -9,6 +9,7 @@ import Table from './table';
 import Menu from './menu';
 import Popup from './popup';
 import Calendar from './calendar';
+import DatePicker from './date-picker';
 
 import './test.css';
 
@@ -368,6 +369,28 @@ class App extends Component {
                 }
                 <h2>calendar</h2>
                 <Calendar />
+                <h2>date picker</h2>
+                <DatePicker />
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
             </div>
         );
     }

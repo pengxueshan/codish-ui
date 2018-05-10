@@ -151,13 +151,30 @@ export default class Calendar extends Component {
                     'cur-day': curDate.getFullYear() == today.getFullYear() && curDate.getMonth() == today.getMonth() && text == today.getDate()
                 });
                 cols.push(
-                    <span key={`${i}-${j}`} className={cls}>{text} </span>
+                    <span key={`${i}-${j}`} className={cls}
+                        data-day={text}
+                        data-month={curDate.getMonth()}
+                        data-year={curDate.getFullYear()}
+                        onClick={this.handleDayClick}>{text}</span>
                 );
             }
             let row = <div key={`${i}`}>{cols}</div>;
             ret.push(row);
         }
         return <div className="codish-ui-calendar__days">{ret}</div>;
+    }
+
+    handleDayClick = e => {
+        let year = e.target.dataset.year;
+        let month = Number(e.target.dataset.month) + 1;
+        let day = e.target.dataset.day;
+        if (typeof this.props.onChange === 'function') {
+            this.props.onChange({
+                year,
+                month,
+                day
+            });
+        }
     }
 
     setMonth = e => {
@@ -224,8 +241,9 @@ export default class Calendar extends Component {
     }
 
     render() {
+        let cls = classNames('codish-ui-calendar', this.props.className);
         return (
-            <div className="codish-ui-calendar">
+            <div className={cls}>
                 {this.renderHeader()}
                 {this.renderWeek()}
                 {this.renderDays()}

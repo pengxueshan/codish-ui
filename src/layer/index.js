@@ -12,13 +12,15 @@ export default class Layer extends Component {
         fixed: PropTypes.bool,
         autoHide: PropTypes.bool,
         onClose: PropTypes.func,
-        delayClose: PropTypes.number
+        delayClose: PropTypes.number,
+        zIndex: PropTypes.number
     };
 
     static defaultProps = {
         position: {x: 0, y: 0},
         className: '',
-        autoHide: true
+        autoHide: true,
+        zIndex: 1000
     };
 
     componentDidMount() {
@@ -54,6 +56,7 @@ export default class Layer extends Component {
             left: this.props.position.x + 'px',
             top: this.props.position.y + 'px',
             position: this.props.fixed ? 'fixed' : 'absolute',
+            zIndex: this.props.zIndex
         };
         return (
             <Modal noneParent>
