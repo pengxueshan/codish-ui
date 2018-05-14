@@ -1,8 +1,8 @@
 .codish-ui-badge {
     position: relative;
-    z-index: 100;
     display: inline-block;
     &-mark {
+        z-index: 100;
         position: absolute;
         background: #ff4949;
         top: 0;
