@@ -1,0 +1,26 @@
+.codish-ui-badge {
+    position: relative;
+    z-index: 100;
+    display: inline-block;
+    &-mark {
+        position: absolute;
+        background: #ff4949;
+        top: 0;
+        right: 0;
+        font-size: 12px;
+        line-height: 16px;
+        border-radius: 8px;
+        color: #fff;
+        box-shadow: 0 0 0 1px #fff;
+        padding: 0 6px;
+        transform: translate(85%, -50%);
+    }
+    &.is-dot {
+        .codish-ui-badge-mark {
+            width: 8px;
+            height: 8px;
+            overflow: hidden;
+            padding: 0;
+        }
+    }
+}

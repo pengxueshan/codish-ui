@@ -11,6 +11,7 @@ import Popup from './popup';
 import Calendar from './calendar';
 import DatePicker from './date-picker';
 import Select from './select';
+import Badge from './badge';
 
 import './test.css';
 
@@ -374,6 +375,16 @@ class App extends Component {
                 <DatePicker />
                 <h2>select</h2>
                 <Select options={[1, 2, 3, 4]} />
+                <h2>badge</h2>
+                <Badge value="99">
+                    <div>test badge</div>
+                </Badge>
+                <Badge value="99" max={50}>
+                    <div>test badge</div>
+                </Badge>
+                <Badge value="99" max={50} isDot>
+                    <div>test badge</div>
+                </Badge>
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>

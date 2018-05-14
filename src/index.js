@@ -11,6 +11,8 @@ import Layer from './layer';
 import Scrollable from './scrollable';
 import Table from './table';
 import Calendar from './calendar';
+import DatePicker from './date-picker';
+import Badge from './badge';
 
 export default {
     Input,
@@ -25,5 +27,7 @@ export default {
     Layer,
     Scrollable,
     Table,
-    Calendar
+    Calendar,
+    DatePicker,
+    Badge
 };
