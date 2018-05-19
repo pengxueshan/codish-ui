@@ -12,6 +12,7 @@ import Calendar from './calendar';
 import DatePicker from './date-picker';
 import Select from './select';
 import Badge from './badge';
+import ToolTip from './tool-tip';
 
 import './test.css';
 
@@ -385,6 +386,19 @@ class App extends Component {
                 <Badge value="99" max={50} isDot>
                     <div>test badge</div>
                 </Badge>
+                <h2>tool tip</h2>
+                <ToolTip tipText="teddslakjfkla">
+                    <div style={{padding: '5px', border: '1px solid #000', marginRight: '10px'}}>提示在顶部</div>
+                </ToolTip>
+                <ToolTip tipText="teddslakjfkla" direction="right">
+                    <div style={{padding: '5px', border: '1px solid #000', marginRight: '10px'}}>提示在右侧</div>
+                </ToolTip>
+                <ToolTip tipText="teddslakjfkla" direction="bottom">
+                    <div style={{padding: '5px', border: '1px solid #000', marginRight: '10px'}}>提示在底部</div>
+                </ToolTip>
+                <ToolTip tipText="teddslakjfkla" direction="left">
+                    <div style={{padding: '5px', border: '1px solid #000', marginRight: '10px'}}>提示在左侧</div>
+                </ToolTip>
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>

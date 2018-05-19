@@ -13,6 +13,7 @@ import Table from './table';
 import Calendar from './calendar';
 import DatePicker from './date-picker';
 import Badge from './badge';
+import ToolTip from './tool-tip';
 
 export default {
     Input,
@@ -29,5 +30,6 @@ export default {
     Table,
     Calendar,
     DatePicker,
-    Badge
+    Badge,
+    ToolTip
 };

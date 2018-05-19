@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../modal';
 import classNames from 'classnames';
+import _ from 'lodash';
 
 import './index.css';
 
@@ -13,7 +14,8 @@ export default class Layer extends Component {
         autoHide: PropTypes.bool,
         onClose: PropTypes.func,
         delayClose: PropTypes.number,
-        zIndex: PropTypes.number
+        zIndex: PropTypes.number,
+        style: PropTypes.object
     };
 
     static defaultProps = {
@@ -58,6 +60,9 @@ export default class Layer extends Component {
             position: this.props.fixed ? 'fixed' : 'absolute',
             zIndex: this.props.zIndex
         };
+        if (this.props.style) {
+            style = _.assign(style, this.props.style);
+        }
         return (
             <Modal noneParent>
                 <div className={cls} style={style} onClick={this.handleCurClick}>{this.props.children}</div>
