@@ -5,6 +5,7 @@
         "transform-object-rest-spread",
         "transform-class-properties",
         "add-module-exports",
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        "lodash"
     ]
 }

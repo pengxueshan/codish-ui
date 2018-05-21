@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -68,5 +69,6 @@ module.exports = {
                 drop_console: false,
             }
         }),
+        new LodashModuleReplacementPlugin()
     ]
 }
