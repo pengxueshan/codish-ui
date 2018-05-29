@@ -14,6 +14,7 @@ import Calendar from './calendar';
 import DatePicker from './date-picker';
 import Badge from './badge';
 import ToolTip from './tool-tip';
+import Upload from './upload';
 
 export default {
     Input,
@@ -31,5 +32,6 @@ export default {
     Calendar,
     DatePicker,
     Badge,
-    ToolTip
+    ToolTip,
+    Upload
 };

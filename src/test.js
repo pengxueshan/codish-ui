@@ -13,6 +13,7 @@ import DatePicker from './date-picker';
 import Select from './select';
 import Badge from './badge';
 import ToolTip from './tool-tip';
+import Upload from './upload';
 
 import './test.css';
 
@@ -399,6 +400,8 @@ class App extends Component {
                 <ToolTip tipText="teddslakjfkla" direction="left">
                     <div style={{padding: '5px', border: '1px solid #000', marginRight: '10px'}}>提示在左侧</div>
                 </ToolTip>
+                <h2>upload</h2>
+                <Upload><button>upload</button></Upload>
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>

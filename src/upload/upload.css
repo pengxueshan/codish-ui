@@ -1,0 +1,10 @@
+.codish-ui-upload {
+    position: relative;
+    &__fileinput {
+        display: none;
+    }
+    iframe {
+        opacity: 0;
+        position: absolute;
+    }
+}
