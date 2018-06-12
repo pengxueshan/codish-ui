@@ -61,6 +61,7 @@ module.exports = {
         extensions: ['.js', '.json', '.jsx', '.css'],
     },
     target: 'web',
+    mode: 'production',
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new webpack.optimize.UglifyJsPlugin({

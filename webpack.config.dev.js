@@ -49,6 +49,7 @@ module.exports = {
     },
     devtool: 'source-map',
     target: 'web',
+    mode: 'development',
     devServer: {
         proxy: {
             '/api': 'http://localhost:3330'
@@ -58,7 +59,7 @@ module.exports = {
         historyApiFallback: true,
         hot: true,
         https: false,
-        noInfo: true,
+        // noInfo: true,
         port: 3330
     },
     plugins: [
