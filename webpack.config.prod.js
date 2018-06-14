@@ -1,13 +1,13 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const entryConfig = require('./entry.config');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: entryConfig,
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
+        filename: '[name].js',
         library: 'CodishUI',
         libraryTarget: 'umd',
     },
@@ -62,14 +62,11 @@ module.exports = {
     },
     target: 'web',
     mode: 'production',
+    optimization: {
+        minimize: true
+    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                drop_console: false,
-            }
-        }),
         new LodashModuleReplacementPlugin()
     ]
 }
