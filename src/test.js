@@ -14,6 +14,7 @@ import Select from './select';
 import Badge from './badge';
 import ToolTip from './tool-tip';
 import Upload from './upload';
+import Shortcut from './shortcut';
 
 import './test.css';
 
@@ -402,6 +403,22 @@ class App extends Component {
                 </ToolTip>
                 <h2>upload</h2>
                 <Upload><button>upload</button></Upload>
+                <h2>shortcut</h2>
+                <Shortcut
+                    onKeyDown={() => {
+                        console.log('key down1 !!!!');
+                    }}
+                    isGlobal
+                ><div>test short cut1</div></Shortcut>
+                <Shortcut
+                    onKeyDown={() => {
+                        console.log('key down2 !!!!');
+                    }}
+                    onKeyUp={(e, code) => {
+                        console.log('key up2:', e, code);
+                    }}
+                    prevent
+                ><div>test short cut2</div></Shortcut>
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>
