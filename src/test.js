@@ -417,7 +417,7 @@ class App extends Component {
                     onKeyUp={(e, code) => {
                         console.log('key up2:', e, code);
                     }}
-                    prevent
+                    occupy
                 ><div>test short cut2</div></Shortcut>
                 <p>test</p>
                 <p>test</p>
