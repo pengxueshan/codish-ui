@@ -209,9 +209,9 @@ export default class Shortcut extends Component {
     componentDidMount() {
         KEY_EVENT_FN_LIST.push({
             id: this._id,
-            keydown: this.props.onKeyDown,
-            keyup: this.props.onKeyUp,
-            keypress: this.props.onKeyPress,
+            keydown: this.props.onShortKeyDown,
+            keyup: this.props.onShortKeyUp,
+            keypress: this.props.onShortKeyPress,
             isGlobal: this.props.isGlobal,
             occupy: this.props.occupy
         });
@@ -221,15 +221,15 @@ export default class Shortcut extends Component {
         KEY_EVENT_FN_LIST = KEY_EVENT_FN_LIST.filter(item => item.id !== this._id);
     }
 
-    handlePress = () => {
+    handleClick = () => {
         let index = KEY_EVENT_FN_LIST.findIndex(item => item.id === this._id);
         let cur = KEY_EVENT_FN_LIST.splice(index, 1);
-        KEY_EVENT_FN_LIST.push(cur);
+        KEY_EVENT_FN_LIST = KEY_EVENT_FN_LIST.concat(cur);
     }
 
     render() {
         return (
-            <div className="codish-ui codish-ui-shortcut" onClick={this.handlePress}>
+            <div className="codish-ui codish-ui-shortcut" onClick={this.handleClick}>
                 {this.props.children}
             </div>
         );

@@ -405,16 +405,16 @@ class App extends Component {
                 <Upload><button>upload</button></Upload>
                 <h2>shortcut</h2>
                 <Shortcut
-                    onKeyDown={() => {
+                    onShortKeyDown={() => {
                         console.log('key down1 !!!!');
                     }}
                     isGlobal
                 ><div>test short cut1</div></Shortcut>
                 <Shortcut
-                    onKeyDown={() => {
+                    onShortKeyDown={() => {
                         console.log('key down2 !!!!');
                     }}
-                    onKeyUp={(e, code) => {
+                    onShortKeyUp={(e, code) => {
                         console.log('key up2:', e, code);
                     }}
                     occupy

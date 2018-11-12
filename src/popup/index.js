@@ -5,8 +5,8 @@ import Button from '../button';
 import uuid from 'uuid';
 import Draggable from '../draggable';
 import classNames from 'classnames';
-import key from 'keymaster';
 import _ from 'lodash';
+import Shortcut from '../shortcut';
 
 import './index.css';
 
@@ -30,22 +30,6 @@ export default class Popup extends Component {
     };
 
     headerId = 'header' + uuid.v4();
-
-    scope = `popup-${this.headerId}`;
-
-    componentDidMount() {
-        key('esc', this.scope, () => {
-            this.close();
-        });
-        key('enter', this.scope, () => {
-            this.handleBtnClick();
-        });
-        key.setScope(this.scope);
-    }
-
-    componentWillUnmount() {
-        key.deleteScope(this.scope);
-    }
 
     renderFooter() {
         if (!this.props.buttons || this.props.buttons.length < 1) return null;
@@ -84,6 +68,14 @@ export default class Popup extends Component {
         return document.getElementsByTagName('body')[0];
     }
 
+    handleKeyDown = (e, which, keycode) => {
+        if (keycode === 'escape') {
+            this.close();
+        } else if (keycode === 'enter') {
+            this.handleBtnClick();
+        }
+    }
+
     render() {
         let cls = classNames('codish-ui-popup', this.props.className);
         let style = this.props.style || {};
@@ -95,16 +87,20 @@ export default class Popup extends Component {
         }
         return (
             <Modal>
-                <Draggable dragId={this.headerId} draggable={this.props.draggable} getBoundaryDom={this.getBodyDom}>
-                    <div className={cls} style={style}>
-                        <div className="codish-ui-popup-header" id={this.headerId}>
-                            <div className="codish-ui-popup-title">{this.props.title}</div>
-                            <div className="codish-ui-popup-close" onClick={this.close}></div>
+                <Shortcut
+                    onShortKeyDown={this.handleKeyDown}
+                    occupy>
+                    <Draggable dragId={this.headerId} draggable={this.props.draggable} getBoundaryDom={this.getBodyDom}>
+                        <div className={cls} style={style}>
+                            <div className="codish-ui-popup-header" id={this.headerId}>
+                                <div className="codish-ui-popup-title">{this.props.title}</div>
+                                <div className="codish-ui-popup-close" onClick={this.close}></div>
+                            </div>
+                            <div className="codish-ui-popup-content">{this.props.children}</div>
+                            {this.renderFooter()}
                         </div>
-                        <div className="codish-ui-popup-content">{this.props.children}</div>
-                        {this.renderFooter()}
-                    </div>
-                </Draggable>
+                    </Draggable>
+                </Shortcut>
             </Modal>
         );
     }
