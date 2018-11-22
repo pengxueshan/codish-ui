@@ -15,6 +15,7 @@ import Badge from './badge';
 import ToolTip from './tool-tip';
 import Upload from './upload';
 import Shortcut from './shortcut';
+import Filter from './filter';
 
 import './test.css';
 
@@ -419,6 +420,8 @@ class App extends Component {
                     }}
                     occupy
                 ><div>test short cut2</div></Shortcut>
+                <h2>Filter</h2>
+                <Filter />
                 <p>test</p>
                 <p>test</p>
                 <p>test</p>

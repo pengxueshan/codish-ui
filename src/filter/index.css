@@ -1,0 +1,18 @@
+.codish-ui-filter {
+    &__item-title,
+    &__item-content {
+        display: inline-block;
+        vertical-align: top;
+    }
+    &__item-title {
+        margin: 0 20px 0 0;
+    }
+    &__item-content {
+        span {
+            margin: 0 10px;
+            &.active {
+                border: 1px solid red;
+            }
+        }
+    }
+}
