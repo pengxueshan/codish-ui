@@ -87,6 +87,9 @@ export default class Filter extends Component {
         this.setState({
             active: tmp
         });
+        if (typeof this.props.onChange === 'function') {
+            this.props.onChange(tmp);
+        }
     }
 
     render() {
